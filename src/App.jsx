@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useReducer, useState } from "react";
+import { todoReducer, initialState } from "./reducer.jsx";
+import TodoItem from "./todoItem.jsx";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [todos, dispatch] = useReducer(todoReducer, initialState);
+  const [newTodo, setNewTodo] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!newTodo.trim()) return;
+
+    dispatch({ type: "ADD_TODO", payload: newTodo });
+    setNewTodo("");
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app">
+      <h1>Todo List</h1>
 
-export default App
+      <form onSubmit={handleSubmit}>
+        <input
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+          placeholder="Add a new task..."
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <ul>
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} todo={todo} dispatch={dispatch} />
+        ))}
+      </ul>
+    </div>
+  );
+}
