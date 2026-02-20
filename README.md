@@ -1,16 +1,44 @@
-# React + Vite
+# React Todo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, interactive to-do list built with React that demonstrates modern state management, controlled components, and conditional rendering. This project was created to practice structuring a complete React application from functional requirements.
 
-Currently, two official plugins are available:
+## Application Structure
+src/
+  App.jsx          → Main application component
+  TodoItem.jsx     → Individual todo UI + logic
+  reducer.jsx      → State management logic
+  App.css          → Application styling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# State Management Approach
 
-## React Compiler
+## useReducer
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Handles all todo-related state:
 
-## Expanding the ESLint configuration
+- Adding todos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Toggling completion
+
+- Editing tasks
+
+- Deleting tasks
+
+## Reducer actions:
+
+- ADD_TODO
+
+- TOGGLE_TODO
+
+- DELETE_TODO
+
+- START_EDIT
+
+- CHANGE_EDIT
+
+- SAVE_EDIT
+
+# useState
+
+## Handles simple UI state:
+
+- New todo input field
