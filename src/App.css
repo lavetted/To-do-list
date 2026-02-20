@@ -13,11 +13,23 @@ body {
   gap: 16px;
 }
 
+input {
+  padding: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
 #root {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
 ul {
@@ -27,14 +39,20 @@ ul {
 
 li {
   display: flex;
+  justify-content: center;
   gap: 8px;
   align-items: center;
-  padding: 8px 0;
+  padding: 5px 0;
 }
 
 .completed span {
   text-decoration: line-through;
   opacity: 0.6;
+  font: 20px italic;
+}
+
+button:hover {
+  color: gray;
 }
 
 button:disabled {
