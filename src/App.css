@@ -3,7 +3,10 @@ body {
   display: flex;
   justify-content: center;
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
+  background-image: url("./Space-Background.jpg");
+  background-size: cover;
 }
 
 .app {
