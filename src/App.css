@@ -1,7 +1,23 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .app {
   max-width: 500px;
   margin: auto;
   font-family: sans-serif;
+  gap: 16px;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ul {
